@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!--
+     targetRuntime常用值:
+        MyBatis3Simple(只生成基本的CRUD和少量的动态SQL)
+        MyBatis3(生成完整的CRUD，包含CriteriaAPI方法Example后缀的方法)
+     -->
+    <context id="localhost_mysql" targetRuntime="MyBatis3">
+
+        <!-- 不生成注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/taotao?characterEncoding=utf8&amp;serverTimezone=UTC"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+		<!-- 生成实体类 -->
+        <javaModelGenerator targetPackage="com.taotao.pojo" targetProject="../taotao-manager-pojo/src/main/java">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+		<!-- 生成XML Mapper -->
+        <sqlMapGenerator targetPackage="src/main/resources/mappers" targetProject=".">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+		<!-- 生成Mapper接口 -->
+        <!-- 生成的Mapper类型：ANNOTATEDMAPPER（注解）、MIXEDMAPPER（混合）、XMLMAPPER（XML） -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.taotao.mapper"  targetProject="src/main/java">
+            <!-- 是否将数据库中的schema作为包名的一部分，默认就是false -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+
+        <!--<table schema="lanou" tableName="message" domainObjectName="Message">
+            &lt;!&ndash; 是否用数据库中的字段名作为POJO属性名(不自动转小驼峰)，默认值是false &ndash;&gt;
+
+            &lt;!&ndash;
+            <property name="useActualColumnNames" value="true"/>
+            &ndash;&gt;
+            &lt;!&ndash; 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 &ndash;&gt;
+
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+
+            &lt;!&ndash; 此标签用于在生成代码时忽略数据库中的某个字段 &ndash;&gt;
+            &lt;!&ndash;
+            <ignoreColumn column="FRED" />
+            &ndash;&gt;
+            &lt;!&ndash; 通过此标签重写mybatis从数据库读到的元信息，自定义列相关配置，包括(名称、类型) &ndash;&gt;
+            &lt;!&ndash;
+            <columnOverride column="aa" property="sname" />
+            &ndash;&gt;
+
+            </table>-->
+
+        <table schema="" tableName="tb_content">
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_content_category">
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_item" >
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_item_cat" >
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_item_desc" >
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_item_param" >
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_item_param_item" >
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_order" >
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_order_item" >
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_order_shipping" >
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table schema="" tableName="tb_user" >
+            <!-- 生成代码时支持获取插入数据后自增的ID， 需要通过sqlStatement配置数据库类型。 -->
+            <generatedKey column="id" sqlStatement="mysql" identity="true" />
+        </table>
+    </context>
+</generatorConfiguration>
